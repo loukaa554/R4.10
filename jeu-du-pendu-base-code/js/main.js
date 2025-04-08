@@ -17,13 +17,26 @@ view.hideMessages();
   avec le modèle) */
 view.updateFrom(game);
 
-view.new_game_btn.addEventListener("onclick", () => {
-  view.hideMessages();
+view.new_game_btn.addEventListener("click", () => {
   try {
-    game.retrieveState();
+    view.hideMessages();
+    game.launchNewGame();
+    view.updateFrom(game);
   } catch (e) {
-    console.error("Erreur lors de la récupération de l'état du jeu :", e);
+    view.displayMessage(e.message, MESSAGE_TYPES.ERROR);
+    return;
   }
-  game.launchNewGame();
-  view.updateFrom(game);
+});
+
+view.letters_btns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    try {
+      view.hideMessages();
+      game.playLetter(btn.innerHTML);
+    } catch (e) {
+      view.displayMessage(e.message, MESSAGE_TYPES.ERROR);
+      return;
+    }
+    // TODO Compléter en Partie 2 ...
+  });
 });

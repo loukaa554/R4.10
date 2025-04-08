@@ -53,7 +53,7 @@ export const view = {
     this.word_input.value = game._displayedWord;
 
     // Met à jour les lettres déjà utilisées
-    this.used_letters_input.value = game._usedLetters.join(", ");
+    this.used_letters_input.value = game._usedLetters;
 
     // Met à jour le nombre d'erreurs permises
     this.allowed_errors_input.value = game._nbErrorsAllowed;
@@ -67,11 +67,6 @@ export const view = {
 
     // Mettre à jour le score
     this.score_span.innerHTML = game._score;
-
-    // Active ou désactive les boutons du clavier virtuel
-    for (let btn of this.letters_btns) {
-      btn.disabled = game._usedLetters.includes(btn.innerHTML);
-    }
   },
 
   /**

@@ -56,9 +56,15 @@ export class Game {
    * @returns {string} Une chaine de la forme "E_E____T"
    */
   generateWordToDisplay(lettersToDisplay, wordToGuess) {
-    return "???";
-
-    // TODO Compléter en Partie 1 ...
+    let displayedWord = "";
+    for (let i = 0; i < wordToGuess.length; i++) {
+      if (lettersToDisplay.includes(wordToGuess[i])) {
+        displayedWord += wordToGuess[i];
+      } else {
+        displayedWord += "_";
+      }
+    }
+    return displayedWord;
   }
 
   /**
