@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Red Border Extension",
+  "version": "1.0",
+  "description": "Ajoute une bordure rouge à toutes les pages",
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["ext.js"]
+    }
+  ]
+}
